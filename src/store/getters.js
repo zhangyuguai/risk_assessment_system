@@ -1,0 +1,13 @@
+const getters = {
+  sidebar: state => state.app.sidebar,
+  device: state => state.app.device,
+  token: state => state.user.token,
+  avatar: state => state.user.avatar,
+  name: state => state.user.name,
+  roles: state => state.user.roles,
+  userId: state => state.user.userId,
+  hasEditPermission: state => {
+    return state.user.roles.some(role => ['admin', 'editor'].includes(role))
+  }
+}
+export default getters
